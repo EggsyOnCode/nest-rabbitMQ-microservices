@@ -1,7 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import { BillingService } from './billing.service';
-import { EventPattern, Payload } from '@nestjs/microservices';
+import { Ctx, EventPattern, Payload, RmqContext } from '@nestjs/microservices';
 import { RmqService } from '@app/commons';
+import { CreateBillDTO } from './dtos/create-bill.dto';
 
 @Controller('billing')
 export class BillingController {
@@ -16,8 +17,13 @@ export class BillingController {
   }
 
   @EventPattern('order_created')
-  async handleOrderCreated(@Payload() data: any) {
-    this.billingService.bill(data);
-    // this.rmqService.(context);
+  async handleOrderCreated(@Payload() data: any, @Ctx() context: RmqContext) {
+    const billDTO: CreateBillDTO = {
+      customer: data.name + ' Rehman',
+      items: ['Milk Packets', 'Lolliles'],
+      total_price: data.price,
+    };
+    this.billingService.createBill(billDTO);
+    this.rmqService.ack(context);
   }
 }
