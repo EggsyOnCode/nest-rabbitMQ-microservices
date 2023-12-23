@@ -7,7 +7,6 @@ import { DatabaseModule, RmqModule } from '@app/commons';
 import { OrdersRepository } from './order.repository';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Order, OrderSchema } from './schemas/order.schema';
-import { BillingService } from 'apps/billing/src/billing.service';
 import { BILLING_SERIVCE } from './constants/services';
 
 @Module({
@@ -27,7 +26,6 @@ import { BILLING_SERIVCE } from './constants/services';
     MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
     //using the rmq module to register the billing service so taht we can pass on msgs from orders to the billign service
     RmqModule.register({ name: BILLING_SERIVCE }),
-    BillingService,
   ],
   controllers: [OrdersController],
   providers: [OrdersService, OrdersRepository],

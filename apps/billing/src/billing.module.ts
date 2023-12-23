@@ -3,7 +3,7 @@ import { BillingController } from './billing.controller';
 import { BillingService } from './billing.service';
 import { RmqModule } from '@app/commons';
 import { ConfigModule } from '@nestjs/config';
-import Joi from 'joi';
+import * as Joi from 'joi';
 
 @Module({
   imports: [

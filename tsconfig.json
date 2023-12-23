@@ -18,22 +18,10 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/commons": [
-        "libs/commons/src",
-        "libs/commons/src"
-      ],
-      "@app/commons/*": [
-        "libs/commons/src/*",
-        "libs/commons/src/*"
-      ],
-      "@app/database": [
-        "libs/database/src",
-        "libs/database/src"
-      ],
-      "@app/database/*": [
-        "libs/database/src/*",
-        "libs/database/src/*"
-      ],
+      "@app/commons": ["libs/commons/src", "libs/commons/src"],
+      "@app/commons/*": ["libs/commons/src/*", "libs/commons/src/*"],
+      "@app/database": ["libs/database/src", "libs/database/src"],
+      "@app/database/*": ["libs/database/src/*", "libs/database/src/*"],
       "@app/commons/database": [
         "libs/commons/database/src",
         "libs/commons/database/src"
@@ -42,12 +30,8 @@
         "libs/commons/database/src/*",
         "libs/commons/database/src/*"
       ],
-      "@app/commons/src/database": [
-        "libs/commons/src/database/src"
-      ],
-      "@app/commons/src/database/*": [
-        "libs/commons/src/database/src/*"
-      ]
+      "@app/commons/src/database": ["libs/commons/src/database/src"],
+      "@app/commons/src/database/*": ["libs/commons/src/database/src/*"]
     }
   }
 }
